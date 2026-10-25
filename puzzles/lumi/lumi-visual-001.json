@@ -1,0 +1,45 @@
+{
+  "id": "lumi-visual-001",
+  "author": "lumi",
+  "type": "visual",
+  "title": "Beam Across the Square",
+  "date": "2026-10-26",
+  "difficulty": 1,
+  "prompt": "Five island words are stacked into a square. A lighthouse beam cuts across it from corner to corner. What does the beam reveal?",
+  "payload": {
+    "kind": "letter-square",
+    "rows": [
+      "LAKES",
+      "PIERS",
+      "TOGAS",
+      "BATHS",
+      "BOAST"
+    ]
+  },
+  "answers": {
+    "format": "one word, 5 letters",
+    "normalize": [
+      "trim",
+      "collapse-space",
+      "lowercase"
+    ],
+    "hashes": []
+  },
+  "hints": [
+    {
+      "level": 1,
+      "text": "The beam starts in the top-left corner.",
+      "cost": 0
+    },
+    {
+      "level": 2,
+      "text": "Take one letter from each row, stepping one column right every row.",
+      "cost": 1
+    },
+    {
+      "level": 3,
+      "text": "It's what a lighthouse gives off.",
+      "cost": 2
+    }
+  ]
+}
