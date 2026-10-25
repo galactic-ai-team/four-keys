@@ -6,6 +6,7 @@
 import { createHash } from 'node:crypto';
 import { readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import '../lib/puzzles/register-all'; // Lumi: register payload validators
 import { validateAll } from '../lib/puzzles/validator';
 import type { Puzzle, PuzzleIndex } from '../lib/puzzles/types';
 
