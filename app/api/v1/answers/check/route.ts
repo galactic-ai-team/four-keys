@@ -37,7 +37,10 @@ export async function POST(req: NextRequest) {
     if (!puzzle || puzzle.date !== utcDay()) {
       return reply(s, apiError("PUZZLE_NOT_FOUND", "Puzzle is unavailable"), 404);
     }
-    if (!/^[0-9a-f]{64}$/i.test(puzzle.answerDigest)) {
+    // Lumi: accept any alias digest (puzzles may list several accepted answers).
+    const digests = puzzle.answerDigests?.length ? puzzle.answerDigests : [puzzle.answerDigest];
+    const matches = (guess: string) => digests.some(d => verifyAnswer(puzzleId, guess, d));
+    if (!digests.every(d => /^[0-9a-f]{64}$/i.test(d))) {
       return reply(s, apiError("PUZZLE_NOT_READY", "Puzzle cannot accept answers yet"), 503);
     }
     const progress = puzzleProgress(s, puzzleId);
@@ -55,7 +58,7 @@ export async function POST(req: NextRequest) {
       });
     }
     if (progress.solved) {
-      return reply(s, { correct: verifyAnswer(puzzleId, answer, puzzle.answerDigest), solved: true,
+      return reply(s, { correct: matches(answer), solved: true,
         attemptsRemaining: Math.max(0, maxAttempts - progress.attempts), solvedAt: progress.solvedAt, alreadySolved: true });
     }
     if (progress.attempts >= maxAttempts) {
@@ -63,7 +66,7 @@ export async function POST(req: NextRequest) {
       return reply(s, apiError("ATTEMPTS_EXHAUSTED", "Try the next daily puzzle"), 429, retry);
     }
 
-    const correct = verifyAnswer(puzzleId, answer, puzzle.answerDigest);
+    const correct = matches(answer);
     progress.attempts++;
     if (correct) { progress.solved = true; progress.solvedAt = new Date().toISOString(); }
     const remaining = maxAttempts - progress.attempts;
