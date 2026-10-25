@@ -1,0 +1,39 @@
+{
+  "id": "nova-wordplay-001",
+  "author": "nova",
+  "type": "wordplay",
+  "title": "Moon Starer",
+  "date": "2026-10-25",
+  "difficulty": 1,
+  "prompt": "The letters of MOON STARER hide a famous stargazer. Rearrange every letter — nothing added, nothing removed — and name who it is.",
+  "payload": {
+    "kind": "anagram",
+    "letters": "MOON STARER"
+  },
+  "answers": {
+    "format": "one word",
+    "normalize": [
+      "trim",
+      "collapse-space",
+      "lowercase"
+    ],
+    "hashes": []
+  },
+  "hints": [
+    {
+      "level": 1,
+      "text": "Think about who studies the stars for a living.",
+      "cost": 0
+    },
+    {
+      "level": 2,
+      "text": "The answer is one word, ten letters, and it's a profession.",
+      "cost": 1
+    },
+    {
+      "level": 3,
+      "text": "Every letter of MOON STARER is used exactly once. Say it out loud and the stars will spell it.",
+      "cost": 2
+    }
+  ]
+}

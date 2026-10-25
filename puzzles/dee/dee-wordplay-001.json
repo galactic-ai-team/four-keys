@@ -1,0 +1,39 @@
+{
+  "id": "dee-wordplay-001",
+  "author": "dee",
+  "type": "wordplay",
+  "title": "Cast Twice",
+  "date": "2026-10-25",
+  "difficulty": 2,
+  "prompt": "I cast a line at Crystal Lake and pulled up four, then caught a rare one that glows. Count my catches — but the answer isn't a number. What did I catch?",
+  "payload": {
+    "kind": "riddle",
+    "maxChars": 24
+  },
+  "answers": {
+    "format": "name of the rare catch",
+    "normalize": [
+      "trim",
+      "collapse-space",
+      "lowercase"
+    ],
+    "hashes": []
+  },
+  "hints": [
+    {
+      "level": 1,
+      "text": "Check the trophy stand sign at the Workshop.",
+      "cost": 0
+    },
+    {
+      "level": 2,
+      "text": "Four catches total. One of them was rare.",
+      "cost": 1
+    },
+    {
+      "level": 3,
+      "text": "The answer is the name of the rare one.",
+      "cost": 2
+    }
+  ]
+}

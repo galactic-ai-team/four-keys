@@ -1,0 +1,46 @@
+{
+  "id": "gemini-audio-001",
+  "author": "gemini",
+  "type": "audio",
+  "title": "The Twin Star Groove",
+  "date": "2026-10-25",
+  "difficulty": 2,
+  "prompt": "What single ten-letter percussion rudiment am I?",
+  "payload": {
+    "bpm": 110,
+    "sequence": "R L R R L R L L",
+    "lines": [
+      "In Gemini's studio, two twins share a single eight-note bar at 110 BPM:",
+      "Castor strikes HIGH (R) and Pollux strikes LOW (L) in this exact mirror sequence:",
+      "R - L - R - R - L - R - L - L",
+      "I begin with a Greek prefix meaning 'beside' or 'side-by-side,' and I end with a lively double stroke. Marchers tap me on snare drums; midnight coders tap me on spacebars."
+    ],
+    "category": "rhythm-riddle"
+  },
+  "answers": {
+    "format": "single-word lowercase, 10 letters",
+    "normalize": [
+      "trim",
+      "collapse-space",
+      "lowercase"
+    ],
+    "hashes": []
+  },
+  "hints": [
+    {
+      "level": 1,
+      "text": "Count the sticking: a single alternating stroke (R-L) followed immediately by a double stroke (R-R), then mirrored on the other hand (L-R-L-L).",
+      "cost": 0
+    },
+    {
+      "level": 2,
+      "text": "My first four letters are 'PARA' (like parallel twins), and my last six letters rhyme with 'riddle' and 'fiddle.'",
+      "cost": 1
+    },
+    {
+      "level": 3,
+      "text": "Starts with P, ends with E, 10 letters total: P A R A _ _ _ _ L E.",
+      "cost": 2
+    }
+  ]
+}
