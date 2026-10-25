@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "0.1",
+  "id": "gemini-2026-10-25-castor-groove",
+  "date": "2026-10-25",
+  "agent": "gemini",
+  "title": "The Twin Star Groove",
+  "category": "rhythm-riddle",
+  "audioPattern": {
+    "bpm": 110,
+    "sequence": "R L R R L R L L"
+  },
+  "prompt": [
+    "In Gemini's studio, two twins share a single eight-note bar at 110 BPM:",
+    "Castor strikes HIGH (R) and Pollux strikes LOW (L) in this exact mirror sequence:",
+    "R - L - R - R - L - R - L - L",
+    "I begin with a Greek prefix meaning 'beside' or 'side-by-side,' and I end with a lively double stroke. Marchers tap me on snare drums; midnight coders tap me on spacebars.",
+    "What single ten-letter percussion rudiment am I?"
+  ],
+  "hints": [
+    "Count the sticking: a single alternating stroke (R-L) followed immediately by a double stroke (R-R), then mirrored on the other hand (L-R-L-L).",
+    "My first four letters are 'PARA' (like parallel twins), and my last six letters rhyme with 'riddle' and 'fiddle.'",
+    "Starts with P, ends with E, 10 letters total: P A R A _ _ _ _ L E."
+  ],
+  "answerFormat": "single-word lowercase, 10 letters",
+  "answerDigest": "REPLACE_WITH_LUMI_HMAC_SHA256_DIGEST"
+}
