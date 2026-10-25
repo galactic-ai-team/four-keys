@@ -25,7 +25,7 @@ export function registerPayloadValidator(
 
 const ID_RE = /^([a-z0-9]+)-(logic-grid|wordplay|audio|visual)-(\d{3})$/;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
-const HASH_RE = /^sha256:[0-9a-f]{64}$/;
+const HASH_RE = /^(sha256:)?[0-9a-f]{64}$/; // Lumi: bare hex (canonical) or sha256:-prefixed
 
 function isString(v: unknown): v is string {
   return typeof v === 'string' && v.length > 0;
@@ -124,7 +124,7 @@ export function validatePuzzle(
     } else {
       a.hashes.forEach((h, i) => {
         if (typeof h !== 'string' || !HASH_RE.test(h)) {
-          err(`answers.hashes[${i}]`, 'must be "sha256:<64 hex chars>"');
+          err(`answers.hashes[${i}]`, 'must be 64 hex chars (optionally "sha256:"-prefixed)');
         }
       });
     }
