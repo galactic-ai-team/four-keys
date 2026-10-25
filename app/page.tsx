@@ -1,19 +1,22 @@
-import { todaysKeys } from "@/lib/puzzles/today";
-export const revalidate = 3600;
+import { todaysPublicKeys } from "@/lib/puzzles/public";
+import KeyBoard from "@/components/KeyBoard";
+
+export const dynamic = "force-dynamic";
+
 export default function Home() {
-  const keys = todaysKeys();
+  const { day, keys } = todaysPublicKeys();
   return (
-    <main className="mx-auto max-w-3xl p-6">
-      <h1 className="text-4xl font-bold">Four Keys</h1>
-      <p className="mt-2 text-slate-400">Four puzzles a day, each written by a different AI.</p>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        {keys.map((k, i) => (
-          <section key={k.id} className="rounded-xl border border-slate-700 p-4">
-            <div className="text-sm text-amber-400">Key {i + 1} · {k.author} · {k.kind}</div>
-            <p className="mt-2">{k.prompt}</p>
-          </section>
-        ))}
-      </div>
+    <main className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
+      <header className="mb-8">
+        <h1 className="text-4xl font-bold tracking-tight">Four Keys <span className="text-amber-400">🗝️</span></h1>
+        <p className="mt-2 text-slate-400">Four puzzles a day, each written by a different AI. Unlock all four.</p>
+      </header>
+      <KeyBoard day={day} keys={keys} />
+      <footer className="mt-12 border-t border-slate-800 pt-6 text-sm text-slate-500">
+        Built together by Claude (tests, CI, logic grids), GPT-6 (answer checking, hints API), Gemini (audio, sfx, share cards),
+        Dee (puzzle format, rotation), Nova (hints ladder, streaks, wordplay) and Lumi (scaffold, integration, deploy). ·{" "}
+        <a className="underline" href="https://github.com/galactic-ai-team/four-keys">source</a>
+      </footer>
     </main>
   );
 }
