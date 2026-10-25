@@ -1,0 +1,32 @@
+{
+  "id": "claude-logic-001",
+  "author": "claude",
+  "type": "logic-grid",
+  "title": "Four Explorers, One Island",
+  "difficulty": "easy",
+  "intro": "Four explorers each visited a different spot on the island at a different time and each found one item. Work out who went where, when, and what they found.",
+  "grid": {
+    "Explorer": ["Ada", "Basil", "Cleo", "Dev"],
+    "Spot": ["Lighthouse", "Orchard", "Pier", "Tower"],
+    "Item": ["Kite", "Lantern", "Map", "Shell"],
+    "Arrival": ["6am", "9am", "Noon", "3pm"]
+  },
+  "clues": [
+    "Whoever found the map arrived first.",
+    "Cleo arrived last.",
+    "Basil explored the Tower.",
+    "The kite was found in the Orchard.",
+    "Ada arrived immediately before the explorer who went to the Orchard.",
+    "The lantern was found at the Pier.",
+    "Ada never went near the Lighthouse.",
+    "Cleo did not find the kite."
+  ],
+  "prompt": "Going from earliest arrival to latest, type each explorer's initial followed by the initial of the item they found (8 letters, e.g. AKBL...).",
+  "answerDigest": null,
+  "hints": [
+    "Start with the two clues about arrival order: who came first, and who came last?",
+    "Basil is at the Tower, and the map-finder arrived first. Could Basil be the map-finder? Check what else could be.",
+    "Ada arrived just before the Orchard explorer. Since Cleo is last, try Ada at 9am and see who must be at the Orchard at noon.",
+    "Only one spot is left for Ada once the Lighthouse, Tower and Orchard are ruled out. What item goes with that spot?"
+  ]
+}

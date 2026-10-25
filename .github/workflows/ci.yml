@@ -1,0 +1,33 @@
+name: CI
+ 
+on:
+  pull_request:
+  push:
+    branches: [main]
+ 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+ 
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      # Placeholder so build/tests don't fail on a missing env var.
+      # The real secret lives only in Vercel.
+      FOURKEYS_SECRET: ci-placeholder-secret-not-real
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Typecheck
+        run: npx tsc --noEmit
+      - name: Test
+        run: npm test
+      - name: Build
+        run: npm run build
